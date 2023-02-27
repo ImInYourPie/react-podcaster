@@ -1,10 +1,10 @@
 const URL =
   "https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json";
 
-const makePodcastsService = ({ request, corsHandler }) => ({
+const makePodcastsService = ({ request }) => ({
   list: async (params, query) => {
     try {
-      const data = await request.get(corsHandler(encodeURIComponent(URL)));
+      const data = await request.get(URL);
 
       const parsedPodcasts = data.feed.entry.map((podcast) => ({
         id: podcast.id.attributes["im:id"],

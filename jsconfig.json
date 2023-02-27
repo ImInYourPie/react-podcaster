@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "module": "ES6",
     "paths": {
       "@components/*": ["./src/components/*"],
       "@context/*": ["./src/context/*"],
