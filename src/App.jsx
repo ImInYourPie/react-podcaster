@@ -1,5 +1,15 @@
+import {} from "react-router-dom";
+
 const App = () => {
-  return <div className="App">App</div>;
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  );
 };
 
 export default App;
