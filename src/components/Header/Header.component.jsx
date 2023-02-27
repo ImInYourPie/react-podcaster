@@ -13,7 +13,12 @@ import {
 // MUI Icons
 import { Link } from "react-router-dom";
 
+// Hooks
+import useHeader from "./Header.hook";
+
 const Header = () => {
+  const { loading } = useHeader();
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" elevation={0}>
@@ -28,7 +33,7 @@ const Header = () => {
             >
               Podcaster
             </Typography>
-            <CircularProgress size={"1.5rem"} color="secondary" />
+            {loading && <CircularProgress size={"1.5rem"} color="secondary" />}
           </Toolbar>
         </Container>
       </AppBar>
