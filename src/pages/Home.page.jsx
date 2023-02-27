@@ -1,7 +1,20 @@
 import React from "react";
 
+// Feature
+import { usePodcasts, PodcastItem, PodcastList } from "@features/podcasts";
+
 const Home = () => {
-  return <div>Home</div>;
+  const { podcasts } = usePodcasts();
+
+  return (
+    <div>
+      <PodcastList>
+        {podcasts.map((podcast) => (
+          <PodcastItem key={podcast.id} />
+        ))}
+      </PodcastList>
+    </div>
+  );
 };
 
 export default Home;

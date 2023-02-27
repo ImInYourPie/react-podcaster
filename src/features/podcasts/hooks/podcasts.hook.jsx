@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 
 // Services
-import { podcastsService } from "@services";
+import { podcastsService } from "../services";
 
 // Context
 import { LoadingContext } from "@context";
@@ -12,7 +12,7 @@ const usePodcasts = () => {
 
   useEffect(() => {
     podcastsService
-      .list()
+      .getTop100Podcasts()
       .then((res) => {
         setPodcasts(res);
       })

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const PodcastItem = ({ imageUrl, name }) => {
-  return <div>PodcastItem</div>;
+  return <div>{name}</div>;
 };
 
 PodcastItem.propTypes = {

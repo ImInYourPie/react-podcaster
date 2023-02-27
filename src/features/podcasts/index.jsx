@@ -1,4 +1,4 @@
-import usePodcasts from "./podcasts.hook";
-import { PodcastItem } from "./components";
+import { usePodcasts } from "./hooks";
+import { PodcastItem, PodcastList } from "./components";
 
-export { usePodcasts, PodcastItem };
+export { usePodcasts, PodcastItem, PodcastList };
