@@ -1,15 +1,8 @@
-import {} from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
+import router from "@pages";
 
 const App = () => {
-  return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </BrowserRouter>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;

@@ -1,3 +1,8 @@
-import podcastsService from "./podcasts.service";
+import makePodcastsService from "./podcasts.service";
 
-export default { podcastsService };
+// Deps
+import { request } from "@libs";
+
+export default {
+  podcastsService: makePodcastsService({ request, corsHandler }),
+};
