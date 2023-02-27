@@ -1,3 +1,7 @@
-import fetch from "./fetch.lib";
+import makeRequest from "./request.lib";
 
-export { fetch };
+export default {
+  request: makeRequest({
+    fetch,
+  }),
+};
