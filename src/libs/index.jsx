@@ -1,7 +1,7 @@
 import makeRequest from "./request.lib";
 
-export default {
-  request: makeRequest({
-    fetch,
-  }),
-};
+const request = makeRequest({
+  fetch,
+});
+
+export { request };
