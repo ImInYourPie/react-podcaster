@@ -7,12 +7,17 @@ import { Base } from "@layouts";
 // Pages
 import Home from "./Home.page";
 
+// Context
+import { PodcastsProvider } from "@features/podcasts";
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
       <Base>
-        <Home />
+        <PodcastsProvider>
+          <Home />
+        </PodcastsProvider>
       </Base>
     ),
   },

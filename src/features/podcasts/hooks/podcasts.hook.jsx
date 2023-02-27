@@ -1,27 +1,15 @@
-import { useState, useEffect, useContext } from "react";
-
-// Services
-import { podcastsService } from "../services";
+import { useContext } from "react";
 
 // Context
-import { LoadingContext } from "@context";
+import { PodcastsContext } from "../context";
 
 const usePodcasts = () => {
-  const { setLoading } = useContext(LoadingContext);
-  const [podcasts, setPodcasts] = useState([]);
+  const { podcasts } = useContext(PodcastsContext);
 
-  useEffect(() => {
-    podcastsService
-      .getTop100Podcasts()
-      .then((res) => {
-        setPodcasts(res);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-
-    return () => {};
-  }, []);
+  console.log(
+    "🚀 ~ file: podcasts.hook.jsx:8 ~ usePodcasts ~ podcasts:",
+    podcasts
+  );
 
   return { podcasts };
 };
