@@ -13,6 +13,21 @@ import { PodcastsProvider } from "@features/podcasts";
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Base />,
+    children: [
+      {
+        index: true,
+        element: (
+          <PodcastsProvider>
+            <Home />
+          </PodcastsProvider>
+        ),
+      },
+    ],
+  },
+  {
+    path: "/podcast/:podcastId",
+    errorElement: <div>Oops!</div>,
     element: (
       <Base>
         <PodcastsProvider>

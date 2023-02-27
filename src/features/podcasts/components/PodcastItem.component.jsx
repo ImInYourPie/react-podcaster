@@ -1,26 +1,41 @@
-import React from "react";
-import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 // MUI
-import { Card, CardContent, Typography } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  CardActionArea,
+} from "@mui/material";
 
-const PodcastItem = ({ podcast, ...rest }) => {
+const PodcastItem = ({ podcast }) => {
   return (
-    <Card sx={{ minWidth: 200 }}>
-      <CardContent>
-        <Typography variant="h5" color="text.primary">
-          {podcast.name}
-        </Typography>
-        <Typography variant="h6" color="text.secondary">
-          {podcast.author}
-        </Typography>
-      </CardContent>
+    <Card>
+      <Link
+        to={`/podcast/${podcast.id}`}
+        style={{ textDecoration: "none", color: "inherit" }}
+        aria-label={`Go to ${podcast.name} podcast page`}
+      >
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            image={podcast.image}
+            alt={`Cover image for ${podcast.name} podcast`}
+            aria-label={`Cover image for ${podcast.name} podcast`}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="subtitle1">
+              {podcast.author}
+            </Typography>
+            <Typography variant="body1" color="text.secondary">
+              {podcast.name}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Link>
     </Card>
   );
-};
-
-PodcastItem.propTypes = {
-  podcast: PropTypes.object.isRequired,
 };
 
 export default PodcastItem;

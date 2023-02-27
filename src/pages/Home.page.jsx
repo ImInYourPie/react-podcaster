@@ -2,7 +2,6 @@ import React from "react";
 
 // Feature
 import { usePodcasts, PodcastItem, PodcastList } from "@features/podcasts";
-import { PodcastsProvider } from "@features/podcasts/context";
 
 const Home = () => {
   const { podcasts } = usePodcasts();

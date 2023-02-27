@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 // Context
 import { PodcastsContext } from "../context";
@@ -6,12 +6,13 @@ import { PodcastsContext } from "../context";
 const usePodcasts = () => {
   const { podcasts } = useContext(PodcastsContext);
 
-  console.log(
-    "🚀 ~ file: podcasts.hook.jsx:8 ~ usePodcasts ~ podcasts:",
-    podcasts
-  );
+  const [search, setSearch] = useState("");
 
-  return { podcasts };
+  const searchChange = (value) => {
+    setSearch(value);
+  };
+
+  return { podcasts, search, searchChange };
 };
 
 export default usePodcasts;

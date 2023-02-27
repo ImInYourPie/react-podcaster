@@ -18,10 +18,14 @@ import useHeader from "./Header.hook";
 
 const Header = () => {
   const { loading } = useHeader();
+  console.log(
+    "🚀 ~ file: Header.component.jsx:21 ~ Header ~ loading:",
+    loading
+  );
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" elevation={0}>
+      <AppBar position="sticky" elevation={0}>
         <Container disableGutters>
           <Toolbar variant="dense">
             <Typography

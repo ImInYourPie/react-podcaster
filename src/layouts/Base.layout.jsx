@@ -1,4 +1,5 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 
 // Components
 import { Header } from "@components";
@@ -9,12 +10,14 @@ import { LoadingProvider } from "@context";
 // MUI
 import { Container, Box } from "@mui/material";
 
-const Base = ({ children }) => {
+const Base = () => {
   return (
     <LoadingProvider>
       <Header />
       <Container>
-        <Box m={2}>{children}</Box>
+        <Box m={2}>
+          <Outlet />
+        </Box>
       </Container>
     </LoadingProvider>
   );
