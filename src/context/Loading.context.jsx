@@ -1,5 +1,4 @@
 import React, { createContext, useState, useMemo } from "react";
-import PropTypes from "prop-types";
 
 export const LoadingContext = createContext();
 
@@ -12,14 +11,8 @@ const LoadingProvider = ({ children }) => {
   };
 
   return (
-    <LoadingProvider.Provider value={value}>
-      {children}
-    </LoadingProvider.Provider>
+    <LoadingContext.Provider value={value}>{children}</LoadingContext.Provider>
   );
-};
-
-LoadingProvider.propTypes = {
-  children: PropTypes.element.isRequired,
 };
 
 export default LoadingProvider;
