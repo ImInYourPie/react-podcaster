@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Run unit tests
+        run: npm run test:unit
+
+      - name: Check test status
+        run: |
+          if [ ${{ steps.test.outputs.test_result }} == "failed" ]; then
+            echo "Tests failed"
+            exit 1
+          fi
+        env:
+          test_result: ${{ toJson(steps.test.outputs.test_result) }}
