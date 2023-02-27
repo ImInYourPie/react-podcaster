@@ -1,6 +1,7 @@
 import makeRequest from "../request.lib";
 
 const mockResponse = {
+  ok: true,
   status: 200,
   message: "Success",
   json: function () {
