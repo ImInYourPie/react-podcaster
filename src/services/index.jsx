@@ -8,7 +8,7 @@ const corsHandler = (url) => {
   return `https://api.allorigins.win/get?url=${url}`;
 };
 
-const podcastsService = makePodcastsService({ request });
+const podcastsService = makePodcastsService({ request, corsHandler });
 const feedService = makeFeedService({ request, corsHandler });
 
 export { podcastsService, feedService };
