@@ -26,7 +26,23 @@ const PodcastProvider = ({ children }) => {
 
   useEffect(() => {
     setLoading(true);
-    getPodcast();
+
+    if (!storedValue) {
+      getPodcast();
+      return;
+    }
+
+    const daysPassed = dateUtils.getDaysPassed(
+      new Date(),
+      new Date(storedValue.updatedAt)
+    );
+
+    if (daysPassed >= 1) {
+      getPodcast();
+      return;
+    }
+
+    commitPodcastToMemory(storedValue.value);
 
     return () => {};
   }, []);
