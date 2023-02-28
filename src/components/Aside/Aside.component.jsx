@@ -40,7 +40,7 @@ const Aside = () => {
         <Typography variant="subtitle1" color={"text.secondary"}>
           Description:
         </Typography>
-        <Typography variant="body1">{podcast.description}</Typography>
+        <Typography dangerouslySetInnerHTML={{ __html: podcast.description }} />
       </CardContent>
     </Card>
   );
