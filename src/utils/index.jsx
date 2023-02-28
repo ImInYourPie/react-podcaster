@@ -5,6 +5,6 @@ import makeXMLUtils from "./xml.utils";
 import { XMLParser } from "fast-xml-parser";
 
 const dateUtils = makeDateUtils();
-const feedUtils = makeXMLUtils({ parser: new XMLParser() });
+const xmlUtils = makeXMLUtils({ parser: new XMLParser() });
 
-export { dateUtils, feedUtils };
+export { dateUtils, xmlUtils };
