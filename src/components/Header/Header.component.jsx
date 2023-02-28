@@ -24,16 +24,25 @@ const Header = () => {
       <AppBar position="sticky" elevation={0}>
         <Container disableGutters>
           <Toolbar variant="dense">
-            <Typography
-              variant="h6"
-              color="inherit"
-              component={Link}
-              to="/"
-              sx={{ flexGrow: 1, textDecoration: "none" }}
+            <Box
+              display={"flex"}
+              width={"100%"}
+              alignItems="center"
+              justifyContent="space-between"
             >
-              Podcaster
-            </Typography>
-            {loading && <CircularProgress size={"1.5rem"} color="secondary" />}
+              <Typography
+                variant="h6"
+                color="inherit"
+                component={Link}
+                to="/"
+                sx={{ textDecoration: "none" }}
+              >
+                Podcaster
+              </Typography>
+              {loading && (
+                <CircularProgress size={"1.5rem"} color="secondary" />
+              )}
+            </Box>
           </Toolbar>
         </Container>
       </AppBar>
