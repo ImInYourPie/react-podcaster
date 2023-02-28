@@ -81,4 +81,24 @@ describe("Utils: Date", () => {
       expect(result).toBe(2);
     });
   });
+
+  describe("msToMinutes", () => {
+    const { msToMinutes } = makeDateUtils();
+
+    test("converts 60000 ms to 01:00", () => {
+      expect(msToMinutes(60000)).toBe("01:00");
+    });
+
+    test("converts 123456 ms to 02:03", () => {
+      expect(msToMinutes(123456)).toBe("02:03");
+    });
+
+    test("converts 1000 ms to 00:01", () => {
+      expect(msToMinutes(1000)).toBe("00:01");
+    });
+
+    test("converts 0 ms to 00:00", () => {
+      expect(msToMinutes(0)).toBe("00:00");
+    });
+  });
 });

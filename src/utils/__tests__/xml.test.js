@@ -1,6 +1,6 @@
 import makeXMLUtils from "../xml.utils";
 
-describe("makeXMLUtils", () => {
+describe("Utils: XMLUtils", () => {
   const parserMock = {
     parse: jest.fn(),
   };
