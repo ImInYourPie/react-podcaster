@@ -20,8 +20,8 @@ const PodcastsProvider = ({ children }) => {
   const [podcasts, setPodcasts] = useState([]);
 
   useEffect(() => {
-    if (storedValue) {
-      commitPodcastsToMemory(storedValue.value);
+    if (!storedValue) {
+      getPodcasts();
       return;
     }
 
@@ -30,7 +30,12 @@ const PodcastsProvider = ({ children }) => {
       new Date(storedValue.updatedAt)
     );
 
-    if (daysPassed >= 1) getPodcasts();
+    if (daysPassed >= 1) {
+      getPodcasts();
+      return;
+    }
+
+    commitPodcastsToMemory(storedValue.value);
 
     return () => {};
   }, []);
