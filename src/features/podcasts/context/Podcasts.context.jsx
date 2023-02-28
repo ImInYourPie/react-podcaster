@@ -6,24 +6,57 @@ import { podcastsService } from "../services";
 // Context
 import { LoadingContext } from "@context";
 
+// Hooks
+import { useLocalStorage } from "@hooks";
+
+// Utils
+import { dateUtils } from "@utils";
+
 export const PodcastsContext = createContext();
 
 const PodcastsProvider = ({ children }) => {
+  const [storedValue, setStoredValue] = useLocalStorage("podcast-list");
   const { setLoading } = useContext(LoadingContext);
   const [podcasts, setPodcasts] = useState([]);
 
   useEffect(() => {
+    if (storedValue) {
+      commitPodcastsToMemory(storedValue.value);
+      return;
+    }
+
+    const daysPassed = dateUtils.getDaysPassed(
+      new Date(),
+      new Date(storedValue.updatedAt)
+    );
+
+    if (daysPassed >= 1) getPodcasts();
+
+    return () => {};
+  }, []);
+
+  const getPodcasts = () =>
     podcastsService
       .getTop100Podcasts()
       .then((res) => {
-        setPodcasts(res);
+        commitPodcastsToMemory(res);
       })
       .finally(() => {
         setLoading(false);
       });
 
-    return () => {};
-  }, []);
+  const saveToLocalStorage = (value) => {
+    setStoredValue({
+      updatedAt: new Date().toUTCString(),
+      value,
+    });
+  };
+
+  const commitPodcastsToMemory = (value) => {
+    setPodcasts(value);
+    saveToLocalStorage(value);
+    setLoading(false);
+  };
 
   const value = {
     podcasts,
