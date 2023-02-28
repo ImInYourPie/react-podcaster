@@ -20,11 +20,14 @@ const request = makeRequest({ fetch: mockFetch });
 const stubUrl = "https://example.com/api";
 
 describe("Libs: Request", () => {
-  test("Calls fetch lib on get request", async () => {
+  test("Calls fetch lib on get request, with url and abort signal as arguments", async () => {
     await request.get(stubUrl);
 
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+
     expect(mockFetch).toHaveBeenCalledTimes(1);
-    expect(mockFetch).toHaveBeenCalledWith(stubUrl);
+    expect(mockFetch).toHaveBeenCalledWith(stubUrl, { signal });
   });
 
   test("Return value is an object", async () => {
