@@ -1,8 +1,15 @@
 import makePodcastService from "./podcasts.service";
 
 // Base service
-import { podcastsService as baseService } from "@services";
+import { podcastsService as baseService, feedService } from "@services";
 
-const podcastService = makePodcastService({ baseService });
+// Utils
+import { xmlUtils } from "@utils";
+
+const podcastService = makePodcastService({
+  baseService,
+  feedService,
+  xmlUtils,
+});
 
 export { podcastService };
