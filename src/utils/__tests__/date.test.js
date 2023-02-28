@@ -52,4 +52,33 @@ describe("Utils: Date", () => {
       expect(result.toISOString()).toBe("2023-02-28T10:00:00.000Z");
     });
   });
+
+  describe("getDaysPassed", () => {
+    it("returns the number of days between two dates", () => {
+      const dateUtils = makeDateUtils();
+      const result = dateUtils.getDaysPassed(
+        "2022-02-28T12:00:00Z",
+        "2022-02-26T12:00:00Z"
+      );
+      expect(result).toBe(2);
+    });
+
+    it("returns 0 when the two dates are the same", () => {
+      const dateUtils = makeDateUtils();
+      const result = dateUtils.getDaysPassed(
+        "2022-02-28T12:00:00Z",
+        "2022-02-28T12:00:00Z"
+      );
+      expect(result).toBe(0);
+    });
+
+    it("returns the absolute difference when the first date is before the second date", () => {
+      const dateUtils = makeDateUtils();
+      const result = dateUtils.getDaysPassed(
+        "2022-02-26T12:00:00Z",
+        "2022-02-28T12:00:00Z"
+      );
+      expect(result).toBe(2);
+    });
+  });
 });

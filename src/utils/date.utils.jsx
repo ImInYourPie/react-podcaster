@@ -11,6 +11,13 @@ const makeDateUtils = () => {
       result.setHours(result.getHours() + hours);
       return result;
     },
+    getDaysPassed: (date, dateToCompare) => {
+      const oneDay = 24 * 60 * 60 * 1000; // hours * minutes * seconds * milliseconds
+      const diffDays = Math.round(
+        Math.abs((new Date(date) - new Date(dateToCompare)) / oneDay)
+      );
+      return diffDays;
+    },
   };
 };
 
