@@ -1,15 +1,19 @@
-const makePodcastService = ({ baseService, feedService, xmlUtils }) => ({
+const makePodcastService = ({
+  baseService,
+  feedService,
+  xmlUtils,
+  dateUtils,
+}) => ({
   getPodcast: async function (podcastId) {
     const data = await baseService.getPodcast(podcastId);
 
     const feedData = await feedService.getFeed(data.results[0].feedUrl);
 
-    const feedDataText = await feedData.text();
-    const parsedFeed = await xmlUtils.parse(feedDataText);
+    const parsedFeed = await xmlUtils.parse(feedData);
 
     const podcast = await this.parsePodcast(
       data.results[0],
-      parsedFeed.rss.channel.description
+      parsedFeed?.rss?.channel?.description
     );
     const episodes = this.parseEpisodes(data.results.slice(0));
 
@@ -20,7 +24,7 @@ const makePodcastService = ({ baseService, feedService, xmlUtils }) => ({
     title: podcast.collectionName,
     author: podcast.artistName,
     image: podcast.artworkUrl600,
-    description: feed,
+    description: feed ?? "No description",
   }),
 
   parseEpisodes: (raw) =>
@@ -29,10 +33,10 @@ const makePodcastService = ({ baseService, feedService, xmlUtils }) => ({
       title: episode.trackName,
       description: episode.description,
       episodeUrl: episode.episodeUrl,
-      date: episode.releaseDate,
+      date: dateUtils.toLocale(episode.releaseDate),
       contentType: episode.episodeContentType,
       fileExtension: episode.episodeFileExtension,
-      duration: episode.trackTimeMillis,
+      duration: dateUtils.msToMinutes(episode.trackTimeMillis),
     })),
 });
 

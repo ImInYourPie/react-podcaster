@@ -4,7 +4,11 @@ import makeFeedService from "./feed.service";
 // Deps
 import { request } from "@libs";
 
+const corsHandler = (url) => {
+  return `https://api.allorigins.win/get?url=${url}`;
+};
+
 const podcastsService = makePodcastsService({ request });
-const feedService = makeFeedService({ request });
+const feedService = makeFeedService({ request, corsHandler });
 
 export { podcastsService, feedService };

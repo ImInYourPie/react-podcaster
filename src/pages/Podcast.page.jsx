@@ -1,9 +1,17 @@
 import React from "react";
 
+// MUI
+import { Box } from "@mui/material";
+
 // Feature
+import { EpisodesList } from "@features/podcast";
 
 const Podcast = () => {
-  return <div>Podcast Page</div>;
+  return (
+    <Box>
+      <EpisodesList />
+    </Box>
+  );
 };
 
 export default Podcast;
