@@ -29,7 +29,7 @@ const Header = () => {
               color="inherit"
               component={Link}
               to="/"
-              sx={{ flexGrow: 1 }}
+              sx={{ flexGrow: 1, textDecoration: "none" }}
             >
               Podcaster
             </Typography>
