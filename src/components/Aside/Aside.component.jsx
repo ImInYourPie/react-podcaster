@@ -15,7 +15,7 @@ import { usePodcast } from "@features/podcast";
 const Aside = () => {
   const { podcast, loading } = usePodcast();
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <></>;
 
   return (
     <Card>
