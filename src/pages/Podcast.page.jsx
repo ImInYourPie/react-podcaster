@@ -4,11 +4,12 @@ import React from "react";
 import { Box } from "@mui/material";
 
 // Feature
-import { EpisodesList } from "@features/podcast";
+import { EpisodesList, Header } from "@features/podcast";
 
 const Podcast = () => {
   return (
     <Box>
+      <Header />
       <EpisodesList />
     </Box>
   );

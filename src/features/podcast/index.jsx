@@ -1,5 +1,5 @@
 import { usePodcast } from "./hooks";
 import { PodcastProvider } from "./context";
-import { EpisodeItem, EpisodesList } from "./components";
+import { EpisodeItem, EpisodesList, Header } from "./components";
 
-export { usePodcast, PodcastProvider, EpisodeItem, EpisodesList };
+export { usePodcast, PodcastProvider, EpisodeItem, EpisodesList, Header };
