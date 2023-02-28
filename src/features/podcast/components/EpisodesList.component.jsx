@@ -12,6 +12,7 @@ import { Card, Box, CardContent, CardHeader } from "@mui/material";
 
 const EpisodesList = () => {
   const { episodes } = usePodcast();
+
   return (
     <Box mx={2}>
       <Card>

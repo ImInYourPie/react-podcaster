@@ -11,11 +11,11 @@ const makePodcastService = ({
 
     const parsedFeed = await xmlUtils.parse(feedData);
 
-    const podcast = await this.parsePodcast(
+    const podcast = this.parsePodcast(
       data.results[0],
       parsedFeed?.rss?.channel?.description
     );
-    const episodes = this.parseEpisodes(data.results.slice(0));
+    const episodes = this.parseEpisodes(data.results.slice(1));
 
     return { podcast, episodes, episodesCount: data.results[0].trackCount };
   },
@@ -26,7 +26,6 @@ const makePodcastService = ({
     image: podcast.artworkUrl600,
     description: feed ?? "No description",
   }),
-
   parseEpisodes: (raw) =>
     raw.map((episode) => ({
       id: episode.trackId,

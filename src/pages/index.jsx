@@ -7,6 +7,7 @@ import { Base, LeftPanel } from "@layouts";
 // Pages
 import Home from "./Home.page";
 import Podcast from "./Podcast.page";
+import Episode from "./Episode.page";
 
 // Context
 import { PodcastsProvider } from "@features/podcasts";
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
           },
           {
             path: "episode/:episodeId",
-            element: <Podcast />,
+            element: <Episode />,
           },
         ],
       },
