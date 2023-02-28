@@ -31,7 +31,7 @@ const Aside = () => {
         </Typography>
 
         <Typography variant="subtitle1" color="text.secondary">
-          <i>by</i>: {podcast?.author}
+          <i>by</i> {podcast?.author}
         </Typography>
 
         <Box my={1}>
