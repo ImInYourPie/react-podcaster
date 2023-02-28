@@ -10,10 +10,10 @@ import { Grid } from "@mui/material";
 const LeftPanel = () => {
   return (
     <Grid container>
-      <Grid items xs={4}>
+      <Grid item xs={4}>
         <Aside />
       </Grid>
-      <Grid items xs={8}>
+      <Grid item xs={8}>
         <Outlet />
       </Grid>
     </Grid>
