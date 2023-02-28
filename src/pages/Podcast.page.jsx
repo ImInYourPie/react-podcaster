@@ -4,9 +4,13 @@ import React from "react";
 import { Box } from "@mui/material";
 
 // Feature
-import { EpisodesList, Header } from "@features/podcast";
+import { EpisodesList, Header, usePodcast } from "@features/podcast";
 
 const Podcast = () => {
+  const { loading } = usePodcast();
+
+  if (loading) return <></>;
+
   return (
     <Box>
       <Header />
