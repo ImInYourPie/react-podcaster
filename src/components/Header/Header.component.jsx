@@ -18,10 +18,6 @@ import useHeader from "./Header.hook";
 
 const Header = () => {
   const { loading } = useHeader();
-  console.log(
-    "🚀 ~ file: Header.component.jsx:21 ~ Header ~ loading:",
-    loading
-  );
 
   return (
     <Box sx={{ flexGrow: 1 }}>
