@@ -12,7 +12,7 @@ const makePodcastsService = ({ request }) => ({
   getPodcast: async (id) => {
     try {
       const data = await request.get(
-        `https://itunes.apple.com/lookup?id=${id}&entity=podcastEpisode`
+        `https://itunes.apple.com/lookup?id=${id}&entity=podcastEpisode&offset=200`
       );
       return data;
     } catch (error) {
