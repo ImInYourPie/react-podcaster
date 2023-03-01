@@ -26,12 +26,20 @@ const Aside = () => {
         aria-label={`Cover image for ${""} podcast`}
       />
       <CardContent>
-        <Typography gutterBottom variant="body1">
-          {podcast?.title}
-        </Typography>
+        <Link to={`/podcast/${podcast.id}`} style={{ textDecoration: "none" }}>
+          <Typography gutterBottom variant="body1">
+            {podcast?.title}
+          </Typography>
+        </Link>
 
         <Typography variant="subtitle1" color="text.secondary">
-          <i>by</i> {podcast?.author}
+          <i>by</i>{" "}
+          <Link
+            to={`/podcast/${podcast.id}`}
+            style={{ textDecoration: "none" }}
+          >
+            {podcast?.author}
+          </Link>
         </Typography>
 
         <Box my={1}>
