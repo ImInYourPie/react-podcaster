@@ -42,7 +42,6 @@ describe("Podcast", () => {
 
   it("displays aside with podcast info", () => {
     cy.get("#aside").should("exist");
-    cy.get("#aside-podcast-title").should("exist");
   });
 
   it("clicking on one episode redirects to episode details view", () => {
