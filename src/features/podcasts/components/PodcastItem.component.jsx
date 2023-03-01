@@ -28,6 +28,7 @@ const PodcastItem = ({ podcast }) => {
             <Typography gutterBottom variant="subtitle1">
               {podcast.author}
             </Typography>
+
             <Typography
               className="podcast-name"
               variant="body1"

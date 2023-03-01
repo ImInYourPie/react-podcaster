@@ -14,7 +14,7 @@ const EpisodeItem = ({ episode }) => {
       justifyContent={"space-between"}
     >
       <Link style={{ textDecoration: "none" }} to={`episode/${episode.id}`}>
-        {episode.title}
+        <Typography>{episode.title}</Typography>
       </Link>
       <Box display={"flex"} flexDirection={"row"} alignItems={"center"}>
         <Typography variant="subtitle2" mx={2}>
