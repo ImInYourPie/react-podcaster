@@ -4,9 +4,9 @@ export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {},
     baseUrl:
-      process.env.NODE_ENV === "prod"
-        ? "http://localhost:3001"
-        : "http://localhost:3000",
+      process.env.NODE_ENV === "dev"
+        ? "http://localhost:3000"
+        : "http://localhost:3001",
     pageLoadTimeout: 60000,
     defaultCommandTimeout: 60000,
     video: false,

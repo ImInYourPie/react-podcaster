@@ -32,7 +32,8 @@ jobs:
         uses: cypress-io/github-action@v5.0.0
         with:
           browser: chrome
-          start: npm run dev
+          build: npm run build
+          start: npm run preview
 
       - name: Check test status
         run: |
