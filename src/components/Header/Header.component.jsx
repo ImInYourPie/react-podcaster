@@ -31,6 +31,7 @@ const Header = () => {
               justifyContent="space-between"
             >
               <Typography
+                id={"brand"}
                 variant="h6"
                 color="inherit"
                 component={Link}

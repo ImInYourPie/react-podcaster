@@ -18,7 +18,7 @@ const Aside = () => {
   if (loading) return <></>;
 
   return (
-    <Card>
+    <Card id={"aside"}>
       <CardMedia
         component="img"
         image={podcast.image}
@@ -27,12 +27,16 @@ const Aside = () => {
       />
       <CardContent>
         <Link to={`/podcast/${podcast.id}`} style={{ textDecoration: "none" }}>
-          <Typography gutterBottom variant="body1">
+          <Typography id={"aside-podcast-title"} gutterBottom variant="body1">
             {podcast?.title}
           </Typography>
         </Link>
 
-        <Typography variant="subtitle1" color="text.secondary">
+        <Typography
+          id={"aside-podcast-author"}
+          variant="subtitle1"
+          color="text.secondary"
+        >
           <i>by</i>{" "}
           <Link
             to={`/podcast/${podcast.id}`}

@@ -33,34 +33,27 @@ describe("Podcast", () => {
       expect(win.localStorage.length).to.eq(0);
     });
 
-    cy.get("#podcast-list").should("exist").should("not.be.empty");
+    cy.get("#episode-list").should("exist").should("not.be.empty");
 
     cy.window().then((win) => {
       expect(win.localStorage.getItem(`podcast-${podcastId}`)).to.not.eq(0);
     });
   });
 
-  //   it("displays the table with the episodes", () => {
-  //     cy.get(".episode-table").should("exist");
-  //     cy.get(".episode-table .episode-title").should(
-  //       "have.length.greaterThan",
-  //       0
-  //     );
-  //   });
+  it("displays aside with podcast info", () => {
+    cy.get("#aside").should("exist");
+    cy.get("#aside-podcast-title").should("exist");
+  });
 
-  //   it("displays the left section with podcast information", () => {
-  //     cy.get(".left-bar").should("exist");
-  //   });
+  it("clicking on one episode redirects to episode details view", () => {
+    cy.get(".episode-title").first().click();
 
-  //   it("click on one episode redirects to episode details view", () => {
-  //     cy.get(".episode-title").first().click();
+    cy.url().should("include", "/episode/");
+  });
 
-  //     cy.url().should("include", "/episode/");
-  //   });
+  it("clicking on the app 'logo' redirects to the main view", () => {
+    cy.get("#brand").first().click();
 
-  //   it("click on the app 'logo' redirects to the main view", () => {
-  //     cy.get(".logo").first().click();
-
-  //     cy.url().should("eq", Cypress.config().baseUrl + "/");
-  //   });
+    cy.url().should("eq", Cypress.config().baseUrl + "/");
+  });
 });

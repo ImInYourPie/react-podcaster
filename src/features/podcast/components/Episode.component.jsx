@@ -19,15 +19,22 @@ const Episode = () => {
     <Box mx={2}>
       <Card>
         <CardHeader
+          id={"episode-title"}
           title={selected?.title}
           titleTypographyProps={{ variant: "h6" }}
         />
         <CardContent>
           <Typography
+            id={"episode-description"}
             dangerouslySetInnerHTML={{ __html: selected?.description }}
           />
           <Box mt={1}>
-            <audio className="audio-player" controls style={{ width: "100%" }}>
+            <audio
+              id={"player"}
+              className="audio-player"
+              controls
+              style={{ width: "100%" }}
+            >
               <source
                 src={selected?.episodeUrl}
                 type={`${selected?.contentType}/${selected?.fileExtension}`}

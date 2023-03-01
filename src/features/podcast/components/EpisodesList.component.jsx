@@ -19,7 +19,6 @@ import {
 
 const EpisodesList = () => {
   const { episodes, podcast } = usePodcast();
-  console.log(episodes.length);
 
   return (
     <Box mx={2}>
@@ -32,7 +31,7 @@ const EpisodesList = () => {
               <TableCell align="right">Duration</TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody id={"episode-list"}>
             {episodes.map((episode) => (
               <TableRow
                 key={episode.id}
@@ -40,6 +39,7 @@ const EpisodesList = () => {
               >
                 <TableCell component="th" scope="row">
                   <Link
+                    className={"episode-title"}
                     style={{ textDecoration: "none" }}
                     to={`episode/${episode.id}`}
                   >
