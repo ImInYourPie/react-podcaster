@@ -1,3 +1,3 @@
-import usePodcast from "./Podcast.hook";
+import usePodcast from "./Podcast.hook.jsx";
 
 export { usePodcast };
