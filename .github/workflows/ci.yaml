@@ -28,11 +28,13 @@ jobs:
       - name: Run unit tests
         run: npm run test:unit
 
+      - name: Build
+        run: npm run build
+
       - name: Run e2e tests
         uses: cypress-io/github-action@v5.0.0
         with:
           browser: chrome
-          build: npm run build
           start: npm run preview
 
       - name: Check test status
