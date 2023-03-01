@@ -35,7 +35,7 @@ jobs:
           build: npm run build
           start: npm run preview
           env:
-            NODE_ENV: prod
+            NODE_ENV: "prod"
 
       - name: Check test status
         run: |
