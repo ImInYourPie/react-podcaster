@@ -4,8 +4,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prestart": "vite build",
+    "start": "vite preview",
     "build": "vite build",
-    "preview": "vite preview",
     "test:unit": "jest",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
