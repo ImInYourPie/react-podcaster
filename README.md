@@ -26,6 +26,6 @@ yarn
 - Dev mode: `yarn dev`
 - Prod mode: `yarn start`
 - Unit testing: `yarn test:unit`
-- e2e testing (dev, browser): `yarn test:e2e-browser`,
-- e2e testing (dev, headless): `yarn test:e2e`,
-- e2e testing (prod, headless): `yarn test:e2e-prod`,
+- e2e testing (dev, browser): `yarn test:e2e-browser`
+- e2e testing (dev, headless): `yarn test:e2e`
+- e2e testing (prod, headless): `yarn test:e2e-prod`
