@@ -18,7 +18,7 @@ const makePodcastsService = ({ request, corsHandler }) => ({
       const data = await request.get(
         corsHandler(
           encodeURIComponent(
-            `https://itunes.apple.com/lookup?id=${id}&entity=podcastEpisode&limit=100000`
+            `https://itunes.apple.com/lookup?id=${id}&entity=podcastEpisode&limit=200`
           )
         )
       );

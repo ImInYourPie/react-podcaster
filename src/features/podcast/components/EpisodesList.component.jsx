@@ -19,6 +19,7 @@ import {
 
 const EpisodesList = () => {
   const { episodes, podcast } = usePodcast();
+  console.log(episodes.length);
 
   return (
     <Box mx={2}>

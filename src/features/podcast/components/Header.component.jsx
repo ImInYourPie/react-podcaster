@@ -11,9 +11,9 @@ const Header = () => {
 
   return (
     <Box mx={2} mb={1}>
-      <Card>
+      <Card id={"header"}>
         <CardContent>
-          <Typography variant="h6" color={"primary"}>
+          <Typography id={"header-count"} variant="h6" color={"primary"}>
             Episodes: {episodesCount}
           </Typography>
         </CardContent>

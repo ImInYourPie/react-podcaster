@@ -10,9 +10,9 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "pretest:e2e-prod": "vite build",
-    "test:e2e": "cross-env NODE_ENV=dev && start-server-and-test dev http-get://localhost:3000/ cypress:run",
-    "test:e2e-browser": "cross-env NODE_ENV=dev && start-server-and-test dev http-get://localhost:3000/ cypress:open",
-    "test:e2e-prod": "cross-env NODE_ENV=prod && start-server-and-test preview http-get://localhost:3001/ cypress:run"
+    "test:e2e": "start-server-and-test dev http-get://localhost:3000/ cypress:run",
+    "test:e2e-browser": "start-server-and-test dev http-get://localhost:3000/ cypress:open",
+    "test:e2e-prod": "cross-env NODE_ENV=prod && start-server-and-test preview http-get://localhost:3000/ cypress:run"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
