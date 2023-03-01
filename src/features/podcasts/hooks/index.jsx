@@ -1,3 +1,3 @@
-import usePodcasts from "./Podcasts.hook";
+import usePodcasts from "./podcasts.hook";
 
 export { usePodcasts };
