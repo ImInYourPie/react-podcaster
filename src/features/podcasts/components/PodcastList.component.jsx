@@ -30,7 +30,9 @@ const PodcastList = () => {
         justifyContent={"space-between"}
         alignItems={"center"}
       >
-        <Typography variant="h5">{filteredPodcasts.length} podcasts</Typography>
+        <Typography id={"podcast-count"} variant="h5">
+          {filteredPodcasts.length} podcasts
+        </Typography>
         <TextField
           name="search"
           variant={"outlined"}
@@ -46,10 +48,10 @@ const PodcastList = () => {
         <Divider />
       </Box>
 
-      <Grid container spacing={2}>
+      <Grid id={"podcast-list"} container spacing={2}>
         {filteredPodcasts.map((podcast) => (
           <Grid item xs={12} sm={6} md={3} key={podcast.id}>
-            <PodcastItem podcast={podcast} />
+            <PodcastItem className={"podcast-item"} podcast={podcast} />
           </Grid>
         ))}
       </Grid>

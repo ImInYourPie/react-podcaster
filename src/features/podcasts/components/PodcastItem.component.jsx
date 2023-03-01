@@ -28,7 +28,11 @@ const PodcastItem = ({ podcast }) => {
             <Typography gutterBottom variant="subtitle1">
               {podcast.author}
             </Typography>
-            <Typography variant="body1" color="text.secondary">
+            <Typography
+              className="podcast-name"
+              variant="body1"
+              color="text.secondary"
+            >
               {podcast.name}
             </Typography>
           </CardContent>
