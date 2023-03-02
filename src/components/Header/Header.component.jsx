@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="sticky" elevation={1}>
+      <AppBar data-testid="header" position="sticky" elevation={1}>
         <Container disableGutters>
           <Toolbar variant="dense">
             <Box
