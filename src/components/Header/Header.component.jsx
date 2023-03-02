@@ -13,6 +13,9 @@ import {
 // MUI Icons
 import { Link } from "react-router-dom";
 
+// MUI Colors
+import { cyan } from "@mui/material/colors";
+
 // Hooks
 import useHeader from "./Header.hook";
 
@@ -41,7 +44,11 @@ const Header = () => {
                 Podcaster
               </Typography>
               {loading && (
-                <CircularProgress size={"1.5rem"} color="secondary" />
+                <CircularProgress
+                  size={"1.5rem"}
+                  thickness={8}
+                  sx={{ color: "#fff" }}
+                />
               )}
             </Box>
           </Toolbar>
