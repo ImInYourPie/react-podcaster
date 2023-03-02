@@ -11,12 +11,13 @@ import { useLocalStorage } from "@hooks";
 
 // Utils
 import { dateUtils } from "@utils";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export const PodcastContext = createContext();
 
 const PodcastProvider = ({ children }) => {
   const { podcastId } = useParams();
+  const navigate = useNavigate();
   const [storedValue, setStoredValue] = useLocalStorage(`podcast-${podcastId}`);
   const { setLoading } = useContext(LoadingContext);
   const [podcast, setPodcast] = useState({});
@@ -25,26 +26,32 @@ const PodcastProvider = ({ children }) => {
   const [episodesCount, setEpisodesCount] = useState(0);
 
   useEffect(() => {
-    setLoading(true);
+    const init = () => {
+      try {
+        setLoading(true);
 
-    if (!storedValue) {
-      getPodcast();
-      return;
-    }
+        if (!storedValue) {
+          getPodcast();
+          return;
+        }
 
-    const daysPassed = dateUtils.getDaysPassed(
-      new Date(),
-      new Date(storedValue.updatedAt)
-    );
+        const daysPassed = dateUtils.getDaysPassed(
+          new Date(),
+          new Date(storedValue.updatedAt)
+        );
 
-    if (daysPassed >= 1) {
-      getPodcast();
-      return;
-    }
+        if (daysPassed >= 1) {
+          getPodcast();
+          return;
+        }
 
-    commitPodcastToMemory(storedValue.value);
+        commitPodcastToMemory(storedValue.value);
+      } catch (error) {
+        navigate("/");
+      }
+    };
 
-    return () => {};
+    init();
   }, []);
 
   const getPodcast = () =>
