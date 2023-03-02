@@ -2,7 +2,6 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import Base from "../Base.layout";
-import { LoadingProvider } from "@context";
 
 jest.mock("@components/Header/Header.hook", () => ({
   __esModule: true,

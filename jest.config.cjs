@@ -4,10 +4,7 @@ const config = {
   transform: {
     "^.+\\.(js|jsx)$": "babel-jest",
   },
-  setupFilesAfterEnv: [
-    "@testing-library/jest-dom/extend-expect",
-    "@testing-library/react-hooks",
-  ],
+  setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
   testEnvironment: "jsdom",
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
