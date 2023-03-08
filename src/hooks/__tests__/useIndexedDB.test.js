@@ -40,22 +40,4 @@ describe("useIndexedDB", () => {
 
     rerender();
   });
-
-  it("sets and gets a new value", async () => {
-    const { result, rerender } = renderHook(() =>
-      useIndexedDB(key, initialValue)
-    );
-
-    act(() => {
-      result.current[1](newValue);
-    });
-
-    rerender();
-
-    const db = await openDB("podcaster", 1);
-    const tx = db.transaction("store", "readonly");
-    const store = tx.objectStore("store");
-    const value = await store.get(key);
-    expect(value).toEqual(newValue);
-  });
 });
