@@ -2,13 +2,9 @@ const makePodcastsService = ({ request, corsHandler }) => ({
   list: async (limit) => {
     try {
       const data = await request.get(
-        corsHandler(
-          encodeURIComponent(
-            `https://itunes.apple.com/us/rss/toppodcasts/limit=${limit}/genre=1310/json`
-          )
-        )
+        `https://itunes.apple.com/us/rss/toppodcasts/limit=${limit}/genre=1310/json`
       );
-      return JSON.parse(data.contents);
+      return data;
     } catch (error) {
       console.log(error);
     }
@@ -16,14 +12,10 @@ const makePodcastsService = ({ request, corsHandler }) => ({
   getPodcast: async (id) => {
     try {
       const data = await request.get(
-        corsHandler(
-          encodeURIComponent(
-            `https://itunes.apple.com/lookup?id=${id}&entity=podcastEpisode&limit=200`
-          )
-        )
+        `https://itunes.apple.com/lookup?id=${id}&entity=podcastEpisode&limit=1`
       );
 
-      return JSON.parse(data.contents);
+      return data;
     } catch (error) {
       console.log(error);
     }

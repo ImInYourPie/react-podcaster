@@ -9,11 +9,9 @@ import { useParams } from "react-router-dom";
 
 const Episode = () => {
   const { episodeId } = useParams();
-  const { episodes, loading } = usePodcast();
+  const { episodes } = usePodcast();
 
-  const selected = episodes.find(
-    (episode) => episode.id === parseInt(episodeId)
-  );
+  const selected = episodes.find((episode) => episode.id === episodeId);
 
   return (
     <Box mx={2}>
@@ -35,10 +33,7 @@ const Episode = () => {
               controls
               style={{ width: "100%" }}
             >
-              <source
-                src={selected?.episodeUrl}
-                type={`${selected?.contentType}/${selected?.fileExtension}`}
-              />
+              <source src={selected?.episodeUrl} />
             </audio>
           </Box>
         </CardContent>

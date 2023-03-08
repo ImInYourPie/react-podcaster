@@ -15,7 +15,7 @@ const makePodcastService = ({
       data.results[0],
       parsedFeed?.rss?.channel?.description
     );
-    const episodes = this.parseEpisodes(data.results.slice(1));
+    const episodes = this.parseEpisodes(parsedFeed?.rss?.channel?.item);
 
     return { podcast, episodes, episodesCount: data.results[0].trackCount };
   },
@@ -26,17 +26,21 @@ const makePodcastService = ({
     image: podcast.artworkUrl600,
     description: feed ?? "No description",
   }),
-  parseEpisodes: (raw) =>
-    raw.map((episode) => ({
-      id: episode.trackId,
-      title: episode.trackName,
-      description: episode.description,
-      episodeUrl: episode.episodeUrl,
-      date: dateUtils.toLocale(episode.releaseDate),
-      contentType: episode.episodeContentType,
-      fileExtension: episode.episodeFileExtension,
-      duration: dateUtils.msToMinutes(episode.trackTimeMillis),
-    })),
+  parseEpisodes: (raw) => {
+    console.log();
+    return raw.map((episode) => ({
+      id: episode?.guid["#text"] || episode?.guid,
+      title: episode?.title,
+      description: episode["content:encoded"] || episode?.description,
+      duration:
+        typeof episode["itunes:duration"] === "number"
+          ? dateUtils.secondsToHours(episode["itunes:duration"])
+          : episode["itunes:duration"],
+      date: dateUtils.toLocale(episode.pubDate),
+      episodeUrl: episode?.enclosure?.attr_url,
+      episodeType: episode?.enclosure?.attr_type,
+    }));
+  },
 });
 
 export default makePodcastService;

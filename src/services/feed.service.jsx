@@ -1,11 +1,11 @@
 const makeFeedService = ({ request, corsHandler }) => ({
   getFeed: async (url) => {
     try {
-      const data = await request.get(corsHandler(encodeURIComponent(url)));
+      const data = await request.get(url, true);
 
-      return data.contents;
+      return data.text();
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   },
 });

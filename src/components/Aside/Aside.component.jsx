@@ -19,12 +19,14 @@ const Aside = () => {
 
   return (
     <Card id={"aside"}>
-      <CardMedia
-        component="img"
-        image={podcast.image}
-        alt={`Cover image for ${podcast.title} podcast`}
-        aria-label={`Cover image for ${""} podcast`}
-      />
+      <Link to={`/podcast/${podcast.id}`} style={{ textDecoration: "none" }}>
+        <CardMedia
+          component="img"
+          image={podcast.image}
+          alt={`Cover image for ${podcast.title} podcast`}
+          aria-label={`Cover image for ${podcast.title} podcast`}
+        />
+      </Link>
       <CardContent>
         <Link to={`/podcast/${podcast.id}`} style={{ textDecoration: "none" }}>
           <Typography id={"aside-podcast-title"} gutterBottom variant="body1">
@@ -52,7 +54,9 @@ const Aside = () => {
         <Typography variant="subtitle1" color={"text.secondary"}>
           Description:
         </Typography>
-        <Typography dangerouslySetInnerHTML={{ __html: podcast.description }} />
+        <Typography
+          dangerouslySetInnerHTML={{ __html: podcast?.description }}
+        />
       </CardContent>
     </Card>
   );

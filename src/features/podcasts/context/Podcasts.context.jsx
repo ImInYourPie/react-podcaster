@@ -20,6 +20,7 @@ const PodcastsProvider = ({ children }) => {
   const [podcasts, setPodcasts] = useState([]);
 
   useEffect(() => {
+    console.log("podcastlist");
     if (!storedValue) {
       getPodcasts();
       return;
