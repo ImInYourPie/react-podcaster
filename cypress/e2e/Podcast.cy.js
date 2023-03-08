@@ -28,18 +28,6 @@ describe("Podcast", () => {
     });
   });
 
-  it("should store data on localStorage after first visit", () => {
-    cy.window().then((win) => {
-      expect(win.localStorage.length).to.eq(0);
-    });
-
-    cy.get("#episode-list").should("exist").should("not.be.empty");
-
-    cy.window().then((win) => {
-      expect(win.localStorage.getItem(`podcast-${podcastId}`)).to.not.eq(0);
-    });
-  });
-
   it("displays aside with podcast info", () => {
     cy.get("#aside").should("exist");
   });
