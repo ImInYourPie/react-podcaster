@@ -2,7 +2,7 @@
 
 ### Introduction
 
-_React Podcaster_ is a web application that allows users to search for and listen to their favorite podcasts. It is built using React 18, Material UI version 5, and uses Jest and Cypress for unit and end-to-end testing.
+**React Podcaster** is a web application that allows users to search for and listen to their favorite podcasts. It is built using React 18, Material UI version 5, and uses Jest and Cypress for unit and end-to-end testing.
 
 ### Requirements
 
@@ -35,11 +35,11 @@ E2E testing (prod, headless): `yarn test:e2e-prod`
 
 ### Architecture
 
-React Podcaster follows the _SOLID_ principles and uses a directory setup of components, features, pages, hooks, contexts, layouts, lib facades, utils, and dependency injection principles to create a scalable and maintainable application. The components directory contains reusable UI elements, while the features directory contains the business logic for each feature. The pages directory contains the top-level components that define the routes of the application. Hooks, contexts, and layouts directories are used to define shared functionality and provide a consistent user experience. The lib facades directory contains external libraries and APIs used in the application, and the utils directory contains utility functions. Finally, the dependency injection principle is applied to provide a flexible and extensible architecture.
+React Podcaster follows the **SOLID** principles and uses a directory setup of components, features, pages, hooks, contexts, layouts, lib facades, utils, and dependency injection principles to create a scalable and maintainable application. The components directory contains reusable UI elements, while the features directory contains the business logic for each feature. The pages directory contains the top-level components that define the routes of the application. Hooks, contexts, and layouts directories are used to define shared functionality and provide a consistent user experience. The lib facades directory contains external libraries and APIs used in the application, and the utils directory contains utility functions. Finally, the dependency injection principle is applied to provide a flexible and extensible architecture.
 
 ### Stack
 
-The technology stack used in _React Podcaster_ includes:
+The technology stack used in **React Podcaster** includes:
 
 - React 18: A popular JavaScript library for building user interfaces.
 - Material UI version 5: A React UI framework that provides pre-built components and themes to speed up development.
