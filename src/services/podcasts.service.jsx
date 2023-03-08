@@ -6,18 +6,22 @@ const makePodcastsService = ({ request, corsHandler }) => ({
       );
       return data;
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   },
   getPodcast: async (id) => {
     try {
       const data = await request.get(
-        `https://itunes.apple.com/lookup?id=${id}&entity=podcastEpisode&limit=1`
+        corsHandler(
+          encodeURIComponent(
+            `https://itunes.apple.com/lookup?id=${id}&entity=podcastEpisode&limit=10`
+          )
+        )
       );
 
-      return data;
+      return JSON.parse(data.contents);
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   },
 });

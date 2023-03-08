@@ -7,7 +7,7 @@ import { podcastService } from "../services";
 import { LoadingContext } from "@context";
 
 // Hooks
-import { useLocalStorage } from "@hooks";
+import { useIndexedDB } from "@hooks";
 
 // Utils
 import { dateUtils } from "@utils";
@@ -18,7 +18,7 @@ export const PodcastContext = createContext();
 const PodcastProvider = ({ children }) => {
   const { podcastId } = useParams();
   const navigate = useNavigate();
-  const [storedValue, setStoredValue] = useLocalStorage(`podcast-${podcastId}`);
+  const [storedValue, setStoredValue] = useIndexedDB(`podcast-${podcastId}`);
   const { setLoading } = useContext(LoadingContext);
   const [podcast, setPodcast] = useState({});
 
@@ -64,7 +64,7 @@ const PodcastProvider = ({ children }) => {
         setLoading(false);
       });
 
-  const saveToLocalStorage = (value) => {
+  const saveToStorage = (value) => {
     setStoredValue({
       updatedAt: new Date().toUTCString(),
       value,
@@ -75,7 +75,7 @@ const PodcastProvider = ({ children }) => {
     setPodcast(value.podcast);
     setEpisodes(value.episodes);
     setEpisodesCount(value.episodesCount);
-    saveToLocalStorage(value);
+    saveToStorage(value);
     setLoading(false);
   };
 

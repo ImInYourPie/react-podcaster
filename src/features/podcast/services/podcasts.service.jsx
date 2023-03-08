@@ -3,11 +3,16 @@ const makePodcastService = ({
   feedService,
   xmlUtils,
   dateUtils,
+  encodeUtils,
 }) => ({
   getPodcast: async function (podcastId) {
     const data = await baseService.getPodcast(podcastId);
 
-    const feedData = await feedService.getFeed(data.results[0].feedUrl);
+    let feedData = await feedService.getFeed(data.results[0].feedUrl);
+
+    if (this.isFeedBase64Encoded(feedData)) {
+      feedData = this.decodeBase64Feed(feedData.split(",")[1]);
+    }
 
     const parsedFeed = await xmlUtils.parse(feedData);
 
@@ -27,9 +32,8 @@ const makePodcastService = ({
     description: feed ?? "No description",
   }),
   parseEpisodes: (raw) => {
-    console.log();
-    return raw.map((episode) => ({
-      id: episode?.guid["#text"] || episode?.guid,
+    return raw.map((episode, index) => ({
+      id: (raw.length - index).toString(),
       title: episode?.title,
       description: episode["content:encoded"] || episode?.description,
       duration:
@@ -40,6 +44,25 @@ const makePodcastService = ({
       episodeUrl: episode?.enclosure?.attr_url,
       episodeType: episode?.enclosure?.attr_type,
     }));
+  },
+  isFeedBase64Encoded: (str) => {
+    if (typeof str !== "string") {
+      return false;
+    }
+
+    if (str.startsWith("data:")) {
+      const parts = str.split(",");
+
+      if (parts.length === 2) {
+        return true;
+      }
+    }
+    return false;
+  },
+  decodeBase64Feed: (encoded) => {
+    const bytes = encodeUtils.base64.decode(encoded);
+    const text = encodeUtils.utf8.decode(bytes);
+    return text;
   },
 });
 
