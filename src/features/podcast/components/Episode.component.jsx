@@ -1,7 +1,15 @@
 import React from "react";
 
 // MUI
-import { Box, Card, CardContent, CardHeader, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  CardHeader,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 
 // Hooks
 import { usePodcast } from "..";
@@ -10,11 +18,13 @@ import { useParams } from "react-router-dom";
 const Episode = () => {
   const { episodeId } = useParams();
   const { episodes } = usePodcast();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const selected = episodes.find((episode) => episode.id === episodeId);
 
   return (
-    <Box mx={2}>
+    <Box mx={isMobile ? 0 : 2}>
       <Card>
         <CardHeader
           id={"episode-title"}

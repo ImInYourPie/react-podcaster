@@ -50,7 +50,7 @@ const PodcastList = () => {
 
       <Grid id={"podcast-list"} container spacing={2}>
         {filteredPodcasts.map((podcast) => (
-          <Grid item xs={12} sm={6} md={3} key={podcast.id}>
+          <Grid item xs={12} sm={6} md={2} key={podcast.id}>
             <PodcastItem className={"podcast-item"} podcast={podcast} />
           </Grid>
         ))}

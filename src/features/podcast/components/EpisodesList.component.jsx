@@ -15,13 +15,17 @@ import {
   TableCell,
   TableBody,
   Typography,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 
 const EpisodesList = () => {
   const { episodes, podcast } = usePodcast();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <Box mx={2}>
+    <Box mx={isMobile ? 0 : 2}>
       <TableContainer component={Card}>
         <Table aria-label={`Table of episodes from "${podcast.title}" podcast`}>
           <TableHead>
