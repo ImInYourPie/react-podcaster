@@ -101,4 +101,55 @@ describe("Utils: Date", () => {
       expect(msToMinutes(0)).toBe("00:00");
     });
   });
+
+  describe("secondsToHours", () => {
+    test('converts 0 seconds to "00:00:00"', () => {
+      const { secondsToHours } = makeDateUtils();
+      expect(secondsToHours(0)).toBe("00:00:00");
+    });
+
+    test('converts 59 seconds to "00:00:59"', () => {
+      const { secondsToHours } = makeDateUtils();
+      expect(secondsToHours(59)).toBe("00:00:59");
+    });
+
+    test('converts 60 seconds to "00:01:00"', () => {
+      const { secondsToHours } = makeDateUtils();
+      expect(secondsToHours(60)).toBe("00:01:00");
+    });
+
+    test('converts 3599 seconds to "00:59:59"', () => {
+      const { secondsToHours } = makeDateUtils();
+      expect(secondsToHours(3599)).toBe("00:59:59");
+    });
+
+    test('converts 3600 seconds to "01:00:00"', () => {
+      const { secondsToHours } = makeDateUtils();
+      expect(secondsToHours(3600)).toBe("01:00:00");
+    });
+
+    test('converts 86399 seconds to "23:59:59"', () => {
+      const { secondsToHours } = makeDateUtils();
+      expect(secondsToHours(86399)).toBe("23:59:59");
+    });
+
+    test('converts 86400 seconds to "24:00:00"', () => {
+      const { secondsToHours } = makeDateUtils();
+      expect(secondsToHours(86400)).toBe("24:00:00");
+    });
+
+    test("throws an error for negative input values", () => {
+      const { secondsToHours } = makeDateUtils();
+      expect(() => secondsToHours(-1)).toThrow(
+        "Input value must be a non-negative integer"
+      );
+    });
+
+    test("throws an error for non-integer input values", () => {
+      const { secondsToHours } = makeDateUtils();
+      expect(() => secondsToHours(123.45)).toThrow(
+        "Input value must be a non-negative integer"
+      );
+    });
+  });
 });
