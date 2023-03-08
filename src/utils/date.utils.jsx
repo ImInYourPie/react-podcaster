@@ -41,9 +41,16 @@ const makeDateUtils = () => {
 
       const formatUnit = (unit) => (unit < 10 ? `0${unit}` : unit.toString());
 
-      const formattedTime = [hours, minutes, remainingSeconds]
-        .map(formatUnit)
-        .join(":");
+      const formattedUnits = [];
+
+      if (hours > 0) {
+        formattedUnits.push(formatUnit(hours));
+      }
+
+      formattedUnits.push(formatUnit(minutes));
+      formattedUnits.push(formatUnit(remainingSeconds));
+
+      const formattedTime = formattedUnits.join(":");
 
       return formattedTime;
     },
