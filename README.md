@@ -26,16 +26,16 @@ yarn
 
 The following commands are available to run the application:
 
-Dev mode: `yarn dev`
-Prod mode: `yarn start`
-Unit testing: `yarn test:unit`
-E2E testing (dev, browser): `yarn test:e2e-browser`
-E2E testing (dev, headless): `yarn test:e2e`
-E2E testing (prod, headless): `yarn test:e2e-prod`
+- Dev mode: `yarn dev`
+- Prod mode: `yarn start`
+- Unit testing: `yarn test:unit`
+- E2E testing (dev, browser): `yarn test:e2e-browser`
+- E2E testing (dev, headless): `yarn test:e2e`
+- E2E testing (prod, headless): `yarn test:e2e-prod`
 
 ### Architecture
 
-React Podcaster follows the **SOLID** principles and uses a directory setup of components, features, pages, hooks, contexts, layouts, lib facades, utils, and dependency injection principles to create a scalable and maintainable application. The components directory contains reusable UI elements, while the features directory contains the business logic for each feature. The pages directory contains the top-level components that define the routes of the application. Hooks, contexts, and layouts directories are used to define shared functionality and provide a consistent user experience. The lib facades directory contains external libraries and APIs used in the application, and the utils directory contains utility functions. Finally, the dependency injection principle is applied to provide a flexible and extensible architecture.
+**React Podcaster** follows the **SOLID** principles and uses a directory setup of components, features, pages, hooks, contexts, layouts, lib facades, utils, and dependency injection principles to create a scalable and maintainable application. The components directory contains reusable UI elements, while the features directory contains the business logic for each feature. The pages directory contains the top-level components that define the routes of the application. Hooks, contexts, and layouts directories are used to define shared functionality and provide a consistent user experience. The lib facades directory contains external libraries and APIs used in the application, and the utils directory contains utility functions. Finally, the dependency injection principle is applied to provide a flexible and extensible architecture.
 
 ### Stack
 
