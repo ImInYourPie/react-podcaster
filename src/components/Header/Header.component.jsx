@@ -8,19 +8,21 @@ import {
   Container,
   Typography,
   CircularProgress,
+  Button,
 } from "@mui/material";
 
 // MUI Icons
 import { Link } from "react-router-dom";
 
-// MUI Colors
-import { cyan } from "@mui/material/colors";
-
 // Hooks
 import useHeader from "./Header.hook";
 
 const Header = () => {
-  const { loading } = useHeader();
+  const { loading, toggleTheme } = useHeader();
+
+  const handleButtonClick = () => {
+    toggleTheme();
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -43,13 +45,18 @@ const Header = () => {
               >
                 Podcaster
               </Typography>
-              {loading && (
-                <CircularProgress
-                  size={"1.5rem"}
-                  thickness={8}
-                  sx={{ color: "#fff" }}
-                />
-              )}
+              <Box>
+                {loading && (
+                  <CircularProgress
+                    size={"1.5rem"}
+                    thickness={8}
+                    sx={{ color: "#fff" }}
+                  />
+                )}
+                <Button onClick={handleButtonClick} color={"secondary"}>
+                  Theme
+                </Button>
+              </Box>
             </Box>
           </Toolbar>
         </Container>
