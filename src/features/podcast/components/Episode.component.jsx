@@ -13,15 +13,20 @@ import {
 
 // Hooks
 import { usePodcast } from "..";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Episode = () => {
-  const { episodeId } = useParams();
-  const { episodes } = usePodcast();
+  const { episodeId, podcastId } = useParams();
+  const { episodes, loading } = usePodcast();
+  const navigate = useNavigate();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const selected = episodes.find((episode) => episode.id === episodeId);
+
+  if (!loading && !selected) {
+    navigate(`/podcast/${podcastId}`);
+  }
 
   return (
     <Box mx={isMobile ? 0 : 2}>
