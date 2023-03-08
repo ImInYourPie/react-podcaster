@@ -15,13 +15,6 @@ const useIndexedDB = (key, initialValue = null) => {
     getValue();
   }, [key, initialValue]);
 
-  useEffect(() => {
-    console.log(
-      "🚀 ~ file: useIndexedDB.hook.js:19 ~ useIndexedDB ~ value:",
-      value
-    );
-  }, [value]);
-
   async function setValueInDB(updatedValue) {
     const db = await openDB("podcaster", 1);
     const tx = db.transaction("store", "readwrite");

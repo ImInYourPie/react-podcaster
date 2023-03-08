@@ -47,18 +47,23 @@ const PodcastProvider = ({ children }) => {
 
         commitPodcastToMemory(storedValue.value);
       } catch (error) {
+        console.log(error);
         navigate("/");
       }
     };
 
     init();
-  }, []);
+  }, [navigate]);
 
   const getPodcast = () =>
     podcastService
       .getPodcast(podcastId)
       .then((res) => {
         commitPodcastToMemory(res);
+      })
+      .catch((err) => {
+        console.log(err);
+        navigate("/");
       })
       .finally(() => {
         setLoading(false);
