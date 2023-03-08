@@ -22,7 +22,7 @@ const makePodcastService = ({
     );
     const episodes = this.parseEpisodes(parsedFeed?.rss?.channel?.item);
 
-    return { podcast, episodes, episodesCount: data.results[0].trackCount };
+    return { podcast, episodes, episodesCount: episodes.length };
   },
   parsePodcast: (podcast, feed) => ({
     id: podcast.collectionId,
