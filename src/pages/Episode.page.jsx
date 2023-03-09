@@ -4,14 +4,15 @@ import React from "react";
 import { Box } from "@mui/material";
 
 // Feature
-import { Episode } from "@features/podcast";
+import { Episode, EpisodeSkeleton } from "@features/podcast";
+
+// Hooks
+import { useLoading } from "@hooks/index";
 
 const Podcast = () => {
-  return (
-    <Box>
-      <Episode />
-    </Box>
-  );
+  const { loading } = useLoading();
+
+  return <Box>{loading ? <EpisodeSkeleton /> : <Episode />}</Box>;
 };
 
 export default Podcast;

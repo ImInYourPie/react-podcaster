@@ -8,6 +8,7 @@ import {
   Episode,
   HeaderSkeleton,
   EpisodesListSkeleton,
+  EpisodeSkeleton,
 } from "./components";
 
 export {
@@ -20,4 +21,5 @@ export {
   Episode,
   HeaderSkeleton,
   EpisodesListSkeleton,
+  EpisodeSkeleton,
 };

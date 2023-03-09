@@ -11,7 +11,7 @@ import {
 
 const PodcastItem = ({ podcast }) => {
   return (
-    <Card sx={{ height: "100%" }}>
+    <Card>
       <Link
         to={`/podcast/${podcast.id}`}
         style={{ textDecoration: "none", color: "inherit" }}

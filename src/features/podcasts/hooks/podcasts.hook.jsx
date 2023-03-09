@@ -6,6 +6,7 @@ import { LoadingContext } from "@context";
 
 const usePodcasts = () => {
   const { loading } = useContext(LoadingContext);
+
   const { podcasts } = useContext(PodcastsContext);
 
   const [search, setSearch] = useState("");
