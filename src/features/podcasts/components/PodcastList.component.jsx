@@ -8,7 +8,7 @@ import { Box, Divider, Grid, TextField, Typography } from "@mui/material";
 import { usePodcasts } from "../hooks";
 
 const PodcastList = () => {
-  const { podcasts, search, loading, searchChange } = usePodcasts();
+  const { podcasts, search, searchChange } = usePodcasts();
 
   const filteredPodcasts = podcasts.filter((podcast) => {
     const { name, author } = podcast;
@@ -20,8 +20,6 @@ const PodcastList = () => {
     const { value } = e.target;
     searchChange(value);
   };
-
-  if (loading) return <></>;
 
   return (
     <Box>

@@ -16,8 +16,6 @@ const PodcastCardSkeleton = () => {
           display={"flex"}
           alignItems={"center"}
           justifyContent={"center"}
-          marginX={"-16px"}
-          marginTop={"-16px"}
           width={374}
           height={374}
         >
