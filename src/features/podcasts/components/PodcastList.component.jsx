@@ -33,20 +33,22 @@ const PodcastList = () => {
         </Typography>
         <TextField
           name="search"
+          aria-label="Search bar"
           variant={"outlined"}
           onChange={handleSearchChange}
           value={search}
           margin={"dense"}
           size={"small"}
           color={"primary"}
-          label={"Search..."}
+          label={"Search"}
+          placeholder={"Search for a podcast..."}
         />
       </Box>
       <Box my={2}>
         <Divider />
       </Box>
 
-      <Grid id={"podcast-list"} container spacing={2} sx={{ height: "50vh" }}>
+      <Grid id={"podcast-list"} container spacing={2}>
         {filteredPodcasts.length > 0 ? (
           filteredPodcasts.map((podcast) => (
             <Grid item xs={12} sm={6} md={2} key={podcast.id}>
@@ -57,7 +59,7 @@ const PodcastList = () => {
           <Box
             display={"flex"}
             width={"100vw"}
-            height={"100%"}
+            height={"300px"}
             alignItems={"center"}
             justifyContent={"center"}
           >

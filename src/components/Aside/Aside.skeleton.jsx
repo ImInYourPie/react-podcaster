@@ -25,11 +25,7 @@ const PodcastCardSkeleton = () => {
         </Box>
         <Skeleton variant={"text"} width={"80%"} height={32} />
 
-        <Typography
-          id={"aside-podcast-author"}
-          variant="subtitle1"
-          color="text.secondary"
-        >
+        <Typography variant="subtitle1" color="text.secondary">
           <Skeleton variant={"text"} width={"50%"} />
         </Typography>
 

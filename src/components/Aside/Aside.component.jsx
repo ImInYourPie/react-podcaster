@@ -31,6 +31,7 @@ const Aside = () => {
       </RouterLink>
       <CardContent>
         <Link
+          id={"aside-podcast-title"}
           component={RouterLink}
           to={`/podcast/${podcast.id}`}
           underline={"hover"}
@@ -38,13 +39,10 @@ const Aside = () => {
           {podcast?.title}
         </Link>
 
-        <Typography
-          id={"aside-podcast-author"}
-          variant="subtitle1"
-          color="text.secondary"
-        >
+        <Typography variant="subtitle1" color="text.secondary">
           <i>by</i>{" "}
           <Link
+            id={"aside-podcast-author"}
             component={RouterLink}
             to={`/podcast/${podcast.id}`}
             underline={"hover"}
