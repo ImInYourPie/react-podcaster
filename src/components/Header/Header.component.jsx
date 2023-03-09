@@ -51,6 +51,7 @@ const Header = () => {
               <Box display={"flex"} alignItems={"center"}>
                 {loading && (
                   <CircularProgress
+                    data-testid="loading-spinner"
                     size={"1.5rem"}
                     thickness={8}
                     sx={{ color: "#fff", marginRight: "8px" }}
