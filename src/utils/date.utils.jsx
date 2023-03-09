@@ -51,7 +51,6 @@ const makeDateUtils = () => {
       formattedUnits.push(formatUnit(remainingSeconds));
 
       const formattedTime = formattedUnits.join(":");
-      console.log(formattedTime);
 
       return formattedTime;
     },
