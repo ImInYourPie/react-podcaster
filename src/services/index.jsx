@@ -5,7 +5,7 @@ import makeFeedService from "./feed.service";
 import { request } from "@libs";
 
 const corsHandler = (url) => {
-  return `https://api.allorigins.win/get?url=${url}`;
+  return `https://cors-anywhere.herokuapp.com/${url}`;
 };
 
 const podcastsService = makePodcastsService({ request, corsHandler });

@@ -8,15 +8,11 @@ const makePodcastsService = ({ request, corsHandler }) => ({
   getPodcast: async (id) => {
     const data = await request.get(
       corsHandler(
-        encodeURIComponent(
-          `https://itunes.apple.com/lookup?id=${id}&entity=podcastEpisode&limit=10`
-        )
+        `https://itunes.apple.com/lookup?id=${id}&entity=podcastEpisode&limit=10`
       )
     );
 
-    if (data.status.http_code !== 200) throw "Podcast not found";
-
-    return JSON.parse(data.contents);
+    return data;
   },
 });
 

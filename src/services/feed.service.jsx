@@ -1,10 +1,13 @@
 const makeFeedService = ({ request, corsHandler }) => ({
   getFeed: async (url) => {
-    const data = await request.get(corsHandler(encodeURIComponent(url)));
+    try {
+      const data = await request.get(corsHandler(url), true);
 
-    if (data.status.http_code !== 200) throw "Podcast not found";
-
-    return data.contents;
+      return data.text();
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
   },
 });
 

@@ -10,10 +10,6 @@ const makePodcastService = ({
 
     let feedData = await feedService.getFeed(data.results[0].feedUrl);
 
-    if (this.isFeedBase64Encoded(feedData)) {
-      feedData = this.decodeBase64Feed(feedData.split(",")[1]);
-    }
-
     const parsedFeed = await xmlUtils.parse(feedData);
 
     const podcast = this.parsePodcast(
