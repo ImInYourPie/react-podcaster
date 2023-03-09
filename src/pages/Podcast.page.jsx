@@ -3,18 +3,24 @@ import React from "react";
 // MUI
 import { Box } from "@mui/material";
 
+// Hooks
+import { useLoading } from "@hooks";
+
 // Feature
-import { EpisodesList, Header, usePodcast } from "@features/podcast";
+import {
+  EpisodesList,
+  Header,
+  HeaderSkeleton,
+  EpisodesListSkeleton,
+} from "@features/podcast";
 
 const Podcast = () => {
-  const { loading } = usePodcast();
-
-  if (loading) return <></>;
+  const { loading } = useLoading();
 
   return (
     <Box>
-      <Header />
-      <EpisodesList />
+      {loading ? <HeaderSkeleton /> : <Header />}
+      {loading ? <EpisodesListSkeleton /> : <EpisodesList />}
     </Box>
   );
 };

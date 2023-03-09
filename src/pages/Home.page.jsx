@@ -4,9 +4,7 @@ import React from "react";
 import { usePodcasts, PodcastItem, PodcastList } from "@features/podcasts";
 
 const Home = () => {
-  const { podcasts, loading } = usePodcasts();
-
-  if (loading) return <></>;
+  const { podcasts } = usePodcasts();
 
   return (
     <PodcastList>

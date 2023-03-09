@@ -46,6 +46,11 @@ describe("Episode", () => {
     cy.url().should("eq", Cypress.config().baseUrl + "/podcast/" + podcastId);
   });
 
+  it("click on one podcast image on the left bar redirects to podcast details view", () => {
+    cy.get("#aside-podcast-image").first().click();
+    cy.url().should("eq", Cypress.config().baseUrl + "/podcast/" + podcastId);
+  });
+
   it("click on the app brand redirects to home", () => {
     cy.get("#brand").first().click();
     cy.url().should("eq", Cypress.config().baseUrl + "/");

@@ -6,6 +6,8 @@ import {
   Header,
   SubHeader,
   Episode,
+  HeaderSkeleton,
+  EpisodesListSkeleton,
 } from "./components";
 
 export {
@@ -16,4 +18,6 @@ export {
   Header,
   SubHeader,
   Episode,
+  HeaderSkeleton,
+  EpisodesListSkeleton,
 };

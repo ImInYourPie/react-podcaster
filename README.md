@@ -20,6 +20,7 @@ To get started, clone this repository and install the dependencies using the fol
 git clone https://github.com/ImInYourPie/react-podcaster.git
 cd react-podcaster
 yarn
+Request permission from https://cors-anywhere.herokuapp.com/corsdemo so the application can make requests
 ```
 
 ### Commands

@@ -1,8 +1,4 @@
 import React from "react";
-import { Link as RouterLink } from "react-router-dom";
-
-// Hooks
-import { usePodcast } from "..";
 
 // MUI
 import {
@@ -14,20 +10,19 @@ import {
   TableRow,
   TableCell,
   TableBody,
-  Link,
   useTheme,
   useMediaQuery,
+  Skeleton,
 } from "@mui/material";
 
-const EpisodesList = () => {
-  const { episodes, podcast } = usePodcast();
+const EpisodesListSkeleton = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Box mx={isMobile ? 0 : 2}>
       <TableContainer component={Card}>
-        <Table aria-label={`Table of episodes from "${podcast.title}" podcast`}>
+        <Table aria-label={`Loading skeleton for podcast table`}>
           <TableHead>
             <TableRow data-testid={"table-header"}>
               <TableCell>Title</TableCell>
@@ -36,27 +31,19 @@ const EpisodesList = () => {
             </TableRow>
           </TableHead>
           <TableBody id={"episode-list"}>
-            {episodes.map((episode) => (
+            {new Array(10).fill({}).map((_, index) => (
               <TableRow
-                data-testid={"episode-row"}
-                key={episode.id}
+                key={index}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell data-testid={"row-title"} component="th" scope="row">
-                  <Link
-                    component={RouterLink}
-                    className={"episode-title"}
-                    underline={"hover"}
-                    to={`episode/${episode.id}`}
-                  >
-                    {episode.title}
-                  </Link>
+                <TableCell width={"70%"} component="th" scope="row">
+                  <Skeleton width={"100%"} />
                 </TableCell>
-                <TableCell data-testid={"row-date"} align="right">
-                  {episode.date}
+                <TableCell align="right">
+                  <Skeleton />
                 </TableCell>
-                <TableCell data-testid={"row-duration"} align="right">
-                  {episode.duration}
+                <TableCell align="right">
+                  <Skeleton />
                 </TableCell>
               </TableRow>
             ))}
@@ -67,4 +54,4 @@ const EpisodesList = () => {
   );
 };
 
-export default EpisodesList;
+export default EpisodesListSkeleton;

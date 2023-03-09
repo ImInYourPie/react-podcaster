@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
 // MUI
 import {
@@ -9,6 +9,7 @@ import {
   CardMedia,
   Divider,
   Typography,
+  Link,
 } from "@mui/material";
 import { usePodcast } from "@features/podcast";
 
@@ -19,19 +20,22 @@ const Aside = () => {
 
   return (
     <Card id={"aside"}>
-      <Link to={`/podcast/${podcast.id}`} style={{ textDecoration: "none" }}>
+      <RouterLink to={`/podcast/${podcast.id}`}>
         <CardMedia
           component="img"
+          id={"aside-podcast-image"}
           image={podcast.image}
           alt={`Cover image for ${podcast.title} podcast`}
           aria-label={`Cover image for ${podcast.title} podcast`}
         />
-      </Link>
+      </RouterLink>
       <CardContent>
-        <Link to={`/podcast/${podcast.id}`} style={{ textDecoration: "none" }}>
-          <Typography id={"aside-podcast-title"} gutterBottom variant="body1">
-            {podcast?.title}
-          </Typography>
+        <Link
+          component={RouterLink}
+          to={`/podcast/${podcast.id}`}
+          underline={"hover"}
+        >
+          {podcast?.title}
         </Link>
 
         <Typography
@@ -41,8 +45,9 @@ const Aside = () => {
         >
           <i>by</i>{" "}
           <Link
+            component={RouterLink}
             to={`/podcast/${podcast.id}`}
-            style={{ textDecoration: "none" }}
+            underline={"hover"}
           >
             {podcast?.author}
           </Link>
