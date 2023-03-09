@@ -1,10 +1,14 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Episode from "../Episode.component";
 import { usePodcast } from "../..";
 
+import paramsMock from "./params.mock.json";
+import podcastMock from "./podcast.mock.json";
+
 jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
   useParams: jest.fn(),
   useNavigate: jest.fn(),
 }));
@@ -15,30 +19,11 @@ jest.mock("../../hooks", () => ({
 
 describe("Episode component", () => {
   beforeEach(() => {
-    useParams.mockReturnValue({
-      podcastId: "1",
-      episodeId: "1",
-    });
+    useParams.mockReturnValue(paramsMock);
   });
 
   it("renders episode details", async () => {
-    usePodcast.mockReturnValue({
-      episodes: [
-        {
-          id: "1",
-          title: "Episode 1",
-          description: "<p>Description 1</p>",
-          episodeUrl: "http://example.com/episode1.mp3",
-        },
-        {
-          id: "2",
-          title: "Episode 2",
-          description: "<p>Description 2</p>",
-          episodeUrl: "http://example.com/episode2.mp3",
-        },
-      ],
-      loading: false,
-    });
+    usePodcast.mockReturnValue(podcastMock);
 
     render(<Episode />);
 

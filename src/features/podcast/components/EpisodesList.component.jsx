@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Hooks
 import { usePodcast } from "..";
@@ -29,7 +29,7 @@ const EpisodesList = () => {
       <TableContainer component={Card}>
         <Table aria-label={`Table of episodes from "${podcast.title}" podcast`}>
           <TableHead>
-            <TableRow>
+            <TableRow data-testid={"table-header"}>
               <TableCell>Title</TableCell>
               <TableCell align="right">Date</TableCell>
               <TableCell align="right">Duration</TableCell>
@@ -38,10 +38,11 @@ const EpisodesList = () => {
           <TableBody id={"episode-list"}>
             {episodes.map((episode) => (
               <TableRow
+                data-testid={"episode-row"}
                 key={episode.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell component="th" scope="row">
+                <TableCell data-testid={"row-title"} component="th" scope="row">
                   <Link
                     className={"episode-title"}
                     style={{ textDecoration: "none" }}
@@ -50,8 +51,12 @@ const EpisodesList = () => {
                     <Typography>{episode.title}</Typography>
                   </Link>
                 </TableCell>
-                <TableCell align="right">{episode.date}</TableCell>
-                <TableCell align="right">{episode.duration}</TableCell>
+                <TableCell data-testid={"row-date"} align="right">
+                  {episode.date}
+                </TableCell>
+                <TableCell data-testid={"row-duration"} align="right">
+                  {episode.duration}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

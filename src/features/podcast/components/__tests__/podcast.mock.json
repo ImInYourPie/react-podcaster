@@ -1,0 +1,28 @@
+{
+  "podcast": {
+    "title": "Podcast 1",
+    "author": "Podcast author 1",
+    "description": "Podcast description",
+    "image": "http://example.com/image.jpg"
+  },
+  "episodes": [
+    {
+      "id": "1",
+      "title": "Episode 1",
+      "description": "<p>Description 1</p>",
+      "episodeUrl": "http://example.com/episode1.mp3",
+      "duration": "00:30:00",
+      "date": "2022-01-01"
+    },
+    {
+      "id": "2",
+      "title": "Episode 2",
+      "description": "<p>Description 2</p>",
+      "episodeUrl": "http://example.com/episode2.mp3",
+      "duration": "00:45:00",
+      "date": "2022-01-02"
+    }
+  ],
+  "episodesCount": 2,
+  "loading": false
+}
