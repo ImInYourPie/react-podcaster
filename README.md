@@ -24,8 +24,13 @@ Request permission from https://cors-anywhere.herokuapp.com/corsdemo so the appl
 
 The following commands are available to run the application:
 
+### Running
+
 - Dev mode: `yarn dev`
 - Prod mode: `yarn start`
+
+### Testing
+
 - Unit testing: `yarn test:unit`
 - E2E testing (dev, browser): `yarn test:e2e-browser`
 - E2E testing (dev, headless): `yarn test:e2e`
