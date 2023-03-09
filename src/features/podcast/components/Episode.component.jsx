@@ -43,6 +43,7 @@ const Episode = () => {
           />
           <Box mt={1}>
             <audio
+              role={"audio"}
               id={"player"}
               className="audio-player"
               controls
