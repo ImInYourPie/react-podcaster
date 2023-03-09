@@ -46,18 +46,18 @@ Overall, the feature-based architecture of **React Podcaster** promotes clean co
 
 The application is organized into the following directories:
 
-- assets: Contains static assets used in the application, such as images and fonts.
-- components: Contains shared components used throughout the application.
-- context: Contains context providers used to manage global state.
-- features: Contains subdirectories for each feature in the application. Each feature directory contains its own set of components, context, hooks, and services.
-- hooks: Contains custom hooks used throughout the application.
-- layouts: Contains layout components used to structure pages.
-- libs: Contains utility functions and modules used throughout the application.
-- pages: Contains top-level pages in the application.
-- services: Contains modules for interacting with external services or APIs.
-- utils: Contains utility functions used throughout the application.
-- App.js: The main application component.
-- main.js: The entry point for the application.
+- **assets**: Contains static assets used in the application, such as images and fonts.
+- **components**: Contains shared components used throughout the application.
+- **context**: Contains context providers used to manage global state.
+- **features**: Contains subdirectories for each feature in the application. Each feature directory contains its own set of components, context, hooks, and services.
+- **hooks**: Contains custom hooks used throughout the application.
+- **layouts**: Contains layout components used to structure pages.
+- **libs**: Contains utility functions and modules used throughout the application.
+- **pages**: Contains top-level pages in the application.
+- **services**: Contains modules for interacting with external services or APIs.
+- **utils**: Contains utility functions used throughout the application.
+- **App.js**: The main application component.
+- **main.js**: The entry point for the application.
 
 ## Stack
 
