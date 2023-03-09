@@ -48,12 +48,24 @@ const PodcastList = () => {
         <Divider />
       </Box>
 
-      <Grid id={"podcast-list"} container spacing={2}>
-        {filteredPodcasts.map((podcast) => (
-          <Grid item xs={12} sm={6} md={2} key={podcast.id}>
-            <PodcastItem className={"podcast-item"} podcast={podcast} />
-          </Grid>
-        ))}
+      <Grid id={"podcast-list"} container spacing={2} sx={{ height: "50vh" }}>
+        {filteredPodcasts.length > 0 ? (
+          filteredPodcasts.map((podcast) => (
+            <Grid item xs={12} sm={6} md={2} key={podcast.id}>
+              <PodcastItem className={"podcast-item"} podcast={podcast} />
+            </Grid>
+          ))
+        ) : (
+          <Box
+            display={"flex"}
+            width={"100vw"}
+            height={"100%"}
+            alignItems={"center"}
+            justifyContent={"center"}
+          >
+            No results
+          </Box>
+        )}
       </Grid>
     </Box>
   );
