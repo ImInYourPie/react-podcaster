@@ -2,6 +2,7 @@
   "name": "react-podcaster",
   "version": "0.0.0",
   "type": "module",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "prestart": "vite build",

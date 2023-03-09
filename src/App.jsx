@@ -7,36 +7,27 @@ import { ThemePreferencesProvider } from "@context";
 const lightTheme = createTheme({
   palette: {
     mode: "light",
-    primary: {
-      main: "#2196f3",
-    },
-    secondary: {
-      main: "#f50057",
-    },
-    background: {
-      default: "#fff",
-    },
+    primary: { main: "#1A73E8" },
+    secondary: { main: "#3B3B3B" },
+    text: { main: "#202124" },
+    background: { default: "#fefefe" },
+    surface: { default: "#FFFFFF" },
   },
 });
 
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
-    primary: {
-      main: "#2196f3",
-    },
-    secondary: {
-      main: "#f50057",
-    },
-    background: {
-      default: "#303030",
-    },
+    primary: { main: "#BB86FC" },
+    secondary: { main: "#E1E1E1" },
+    text: { main: "#EDEDED" },
+    background: { default: "#121212" },
+    surface: { default: "#1E1E1E" },
   },
 });
 
 const Base = () => {
   const { theme } = useThemePreferences("theme");
-  console.log("🚀 ~ file: App.jsx:39 ~ Base ~ theme:", theme);
 
   return (
     <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>

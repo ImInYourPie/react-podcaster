@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // MUI
 import {
@@ -8,17 +9,19 @@ import {
   Container,
   Typography,
   CircularProgress,
-  Button,
+  IconButton,
 } from "@mui/material";
 
 // MUI Icons
-import { Link } from "react-router-dom";
+import { LightModeRounded, DarkModeRounded } from "@mui/icons-material";
 
 // Hooks
 import useHeader from "./Header.hook";
+import { useThemePreferences } from "@hooks";
 
 const Header = () => {
   const { loading, toggleTheme } = useHeader();
+  const { theme } = useThemePreferences();
 
   const handleButtonClick = () => {
     toggleTheme();
@@ -45,17 +48,21 @@ const Header = () => {
               >
                 Podcaster
               </Typography>
-              <Box>
+              <Box display={"flex"} alignItems={"center"}>
                 {loading && (
                   <CircularProgress
                     size={"1.5rem"}
                     thickness={8}
-                    sx={{ color: "#fff" }}
+                    sx={{ color: "#fff", marginRight: "8px" }}
                   />
                 )}
-                <Button onClick={handleButtonClick} color={"secondary"}>
-                  Theme
-                </Button>
+                <IconButton onClick={handleButtonClick} sx={{ color: "#fff" }}>
+                  {theme === "dark" ? (
+                    <DarkModeRounded />
+                  ) : (
+                    <LightModeRounded />
+                  )}
+                </IconButton>
               </Box>
             </Box>
           </Toolbar>

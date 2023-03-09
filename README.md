@@ -35,7 +35,26 @@ The following commands are available to run the application:
 
 ### Architecture
 
-**React Podcaster** follows the **SOLID** principles and uses a directory setup of components, features, pages, hooks, contexts, layouts, lib facades, utils, and dependency injection principles to create a scalable and maintainable application. The components directory contains reusable UI elements, while the features directory contains the business logic for each feature. The pages directory contains the top-level components that define the routes of the application. Hooks, contexts, and layouts directories are used to define shared functionality and provide a consistent user experience. The lib facades directory contains external libraries and APIs used in the application, and the utils directory contains utility functions. Finally, the dependency injection principle is applied to provide a flexible and extensible architecture.
+**React Podcaster** is a React application built using a feature-based architecture. This architecture follows the **SOLID** principles, with a directory structure that promotes scalability and maintainability.
+This structure allows for clear separation of concerns, making it easier to manage complex applications by breaking them down into smaller, more manageable pieces. In addition, dependency injection principles are applied to provide a flexible and extensible architecture.
+Overall, the feature-based architecture of **React Podcaster** promotes clean code, separation of concerns, and maintainability, making it a great choice for building large, complex applications.
+
+### Project Structure
+
+The application is organized into the following directories:
+
+- assets: Contains static assets used in the application, such as images and fonts.
+- components: Contains shared components used throughout the application.
+- context: Contains context providers used to manage global state.
+- features: Contains subdirectories for each feature in the application. Each feature directory contains its own set of components, context, hooks, and services.
+- hooks: Contains custom hooks used throughout the application.
+- layouts: Contains layout components used to structure pages.
+- libs: Contains utility functions and modules used throughout the application.
+- pages: Contains top-level pages in the application.
+- services: Contains modules for interacting with external services or APIs.
+- utils: Contains utility functions used throughout the application.
+- App.js: The main application component.
+- main.js: The entry point for the application.
 
 ### Stack
 
@@ -45,3 +64,7 @@ The technology stack used in **React Podcaster** includes:
 - Material UI version 5: A React UI framework that provides pre-built components and themes to speed up development.
 - Jest: A JavaScript testing framework used for unit testing.
 - Cypress: A JavaScript end-to-end testing framework used for UI testing.
+
+### License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
