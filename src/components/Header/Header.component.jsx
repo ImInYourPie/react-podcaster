@@ -56,11 +56,15 @@ const Header = () => {
                     sx={{ color: "#fff", marginRight: "8px" }}
                   />
                 )}
-                <IconButton onClick={handleButtonClick} sx={{ color: "#fff" }}>
+                <IconButton
+                  data-testid={"header-icon-button"}
+                  onClick={handleButtonClick}
+                  sx={{ color: "#fff" }}
+                >
                   {theme === "dark" ? (
-                    <DarkModeRounded />
+                    <DarkModeRounded data-testid={"dark-icon"} />
                   ) : (
-                    <LightModeRounded />
+                    <LightModeRounded data-testid={"light-icon"} />
                   )}
                 </IconButton>
               </Box>

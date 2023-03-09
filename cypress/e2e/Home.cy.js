@@ -1,6 +1,12 @@
 describe("Home", () => {
   beforeEach(() => {
+    cy.restoreLocalStorage();
+
     cy.visit("/");
+  });
+
+  afterEach(() => {
+    cy.saveLocalStorage();
   });
 
   it("displays the correct number of podcasts", () => {
@@ -8,6 +14,7 @@ describe("Home", () => {
   });
 
   it("should store data on localStorage after first visit", () => {
+    cy.clearLocalStorage();
     cy.visit("/");
 
     cy.window().then((win) => {

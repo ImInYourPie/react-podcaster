@@ -5,10 +5,6 @@ describe("Episode", () => {
   let episodeId;
 
   before(async () => {
-    const corsHandler = (url) => {
-      return `https://api.allorigins.win/get?url=${url}`;
-    };
-
     const response = await fetch(
       "https://itunes.apple.com/us/rss/toppodcasts/limit=10/genre=1310/json"
     );
@@ -16,18 +12,7 @@ describe("Episode", () => {
 
     podcastId = data.feed.entry[0].id.attributes["im:id"];
 
-    const episodeResponse = await fetch(
-      corsHandler(
-        encodeURIComponent(
-          `https://itunes.apple.com/lookup?id=${podcastId}&entity=podcastEpisode&limit=10`
-        )
-      )
-    );
-
-    const episodeRaw = await episodeResponse.json();
-    const episodeData = JSON.parse(episodeRaw.contents);
-
-    episodeId = episodeData.results[1].trackId;
+    episodeId = 1;
   });
 
   beforeEach(async () => {
